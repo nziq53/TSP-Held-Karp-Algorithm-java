@@ -23,8 +23,10 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: microsoft
-          java-version: 20
+          java-version: 17
       # Gradleビルドを実行
-      - uses: gradle/gradle-build-action@v2
-        with:
-          arguments: build
+#       - uses: gradle/gradle-build-action@v2
+#         with:
+#           arguments: build
+      - name: Build java
+        run: javac TSP_Held_Karp_Algorithm.java && java -d64 -Xmx16g TSP_Held_Karp_Algorithm
