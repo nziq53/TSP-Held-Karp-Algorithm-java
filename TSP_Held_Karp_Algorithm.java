@@ -153,7 +153,7 @@ public class TSP_Held_Karp_Algorithm {
 
       System.out
           .println(via_cities_size + " / " + (len - 1) + "all: " + (System.currentTimeMillis() - start_time) / 1000
-              + ", diff: ms" + (System.currentTimeMillis() - diff) / 1000 + "s");
+              + "s, diff: " + (System.currentTimeMillis() - diff) / 1000 + "s");
     }
 
     BigInteger via_cities = BigInteger.ONE.shiftLeft(len).subtract(BigInteger.TWO);
