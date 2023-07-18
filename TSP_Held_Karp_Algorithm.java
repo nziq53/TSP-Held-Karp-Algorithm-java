@@ -1,8 +1,10 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +14,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Map.Entry;
 import java.util.stream.IntStream;
+import java.util.zip.ZipInputStream;
 
 // 集合はintで表せ、bit演算を用いることで高速に動かせる。
 
@@ -163,8 +166,10 @@ public class TSP_Held_Karp_Algorithm {
     TSP_Held_Karp_Algorithm tsp;
     try {
       // File file = new File("test1.dat");
-      File file = new File("table.dat");
-      tsp = TSP_Held_Karp_Algorithm.from(new BufferedReader(new FileReader(file)));
+      // tsp = TSP_Held_Karp_Algorithm.from(new BufferedReader(new FileReader(file)));
+      File file = new File("table.zip");
+      tsp = TSP_Held_Karp_Algorithm
+          .from(new BufferedReader(new InputStreamReader(new ZipInputStream(new FileInputStream(file)))));
       tsp.tsp_shortest_path();
       System.out.println(tsp.tsp_shortest_cost);
       System.out.println(Arrays.toString(tsp.tsp_shortest_path));
