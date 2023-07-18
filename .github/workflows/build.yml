@@ -12,7 +12,7 @@ jobs:
   calc:
     # 最新のUbuntuでワークフローを実行
     runs-on: ubuntu-latest
-    timeout-minutes: 2400
+    timeout-minutes: 24000
     # ジョブが行うステップの一覧
     steps:
       # ソースコードをGitからチェックアウト
@@ -31,4 +31,4 @@ jobs:
 #           arguments: build
       - name: Build java
         run: javac TSP_Held_Karp_Algorithm.java && java -Xrs -Xmx6g TSP_Held_Karp_Algorithm
-        timeout-minutes: 2400
+        timeout-minutes: 24000
