@@ -185,7 +185,7 @@ public class TSP_Held_Karp_Algorithm {
   public static void main(String[] args) {
     TSP_Held_Karp_Algorithm tsp;
     try {
-      File file = new File("test1.dat");
+      File file = new File("test2.dat");
       tsp = TSP_Held_Karp_Algorithm.from(new BufferedReader(new FileReader(file)));
       // File file = new File("table.zip");
       // tsp = TSP_Held_Karp_Algorithm.from(new ZipInputStream(new FileInputStream(file)));
