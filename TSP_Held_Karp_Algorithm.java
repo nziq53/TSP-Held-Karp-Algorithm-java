@@ -83,37 +83,36 @@ public class TSP_Held_Karp_Algorithm {
       BigInteger prev_via_cities = via_cities.clearBit(prev_last_city_i);
 
       CostAndCity costAndCity = map.get(new CityAndViaCities(prev_last_city_i, prev_via_cities));
-      // if (costAndCity == null) {
-      // CityAndViaCities citiestest = new CityAndViaCities(prev_last_city_i,
-      // prev_via_cities);
-      // System.out.println("citiestest: " + citiestest.toString());
+      if (costAndCity == null) {
+        CityAndViaCities citiestest = new CityAndViaCities(prev_last_city_i,
+            prev_via_cities);
+        System.out.println("citiestest: " + citiestest.toString());
 
-      // for (Entry<CityAndViaCities, CostAndCity> entry : map.entrySet()) {
-      // // if (citiestest != entry.getKey()) {
-      // // System.out.println("citiestest != entry.getKey()");
-      // // }
-      // CityAndViaCities key = entry.getKey();
-      // CostAndCity value = entry.getValue();
-      // if (citiestest.equals(key)) {
-      // System.out.println("equal key");
-      // }
-      // if (key.city == 128 && key.cities.equals(citiestest.cities)) {
-      // System.out.println("equal key alt");
-      // System.out.println(citiestest.city);
-      // }
-      // if (key.city.equals(citiestest.city) && key.cities.equals(citiestest.cities))
-      // {
-      // System.out.println("equal key alt alt");
-      // }
-      // if (key.city == 128 && key.cities.equals(BigInteger.ZERO))
-      // System.out.println(key.toString() + " : " + value.toString());
-      // }
+        for (Entry<CityAndViaCities, CostAndCity> entry : map.entrySet()) {
+          // if (citiestest != entry.getKey()) {
+          // System.out.println("citiestest != entry.getKey()");
+          // }
+          CityAndViaCities key = entry.getKey();
+          CostAndCity value = entry.getValue();
+          if (citiestest.equals(key)) {
+            System.out.println("equal key");
+          }
+          if (key.city == 128 && key.cities.equals(citiestest.cities)) {
+            System.out.println("equal key alt");
+            System.out.println(citiestest.city);
+          }
+          if (key.city.equals(citiestest.city) && key.cities.equals(citiestest.cities)) {
+            System.out.println("equal key alt alt");
+          }
+          if (key.city == 128 && key.cities.equals(BigInteger.ZERO))
+            System.out.println(key.toString() + " : " + value.toString());
+        }
 
-      // if (citiestest.city == 128 && citiestest.cities.equals(BigInteger.ZERO)) {
-      // System.out.println("citiestest.toString()");
-      // }
+        if (citiestest.city == 128 && citiestest.cities.equals(BigInteger.ZERO)) {
+          System.out.println("citiestest.toString()");
+        }
 
-      // }
+      }
       int prev_cities_cost = costAndCity.cost;
 
       if (cost == -1 || prev_cities_cost + cityData[prev_last_city_i][last_city] < cost) {
@@ -152,8 +151,9 @@ public class TSP_Held_Karp_Algorithm {
                 find_shortest_path_to_via(last_city, via_cities, cities));
       }
 
-      System.out.println(via_cities_size + " / " + (len - 1) + "all: " + (System.currentTimeMillis() - start_time)
-          + ", diff: " + (System.currentTimeMillis() - diff));
+      System.out
+          .println(via_cities_size + " / " + (len - 1) + "all: " + (System.currentTimeMillis() - start_time) / 1000
+              + ", diff: ms" + (System.currentTimeMillis() - diff) / 1000 + "s");
     }
 
     BigInteger via_cities = BigInteger.ONE.shiftLeft(len).subtract(BigInteger.TWO);
