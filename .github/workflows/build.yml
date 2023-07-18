@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: microsoft
-          java-version: 17
+          java-version: 20
       # Gradleビルドを実行
 #       - uses: gradle/gradle-build-action@v2
 #         with:
