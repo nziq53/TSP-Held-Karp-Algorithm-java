@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: oracle
-          java-version: 21-ea
+          java-version: 20
       # Gradleビルドを実行
 #       - uses: gradle/gradle-build-action@v2
 #         with:

@@ -16,6 +16,7 @@ import java.util.Map.Entry;
 import java.util.stream.IntStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import java.util.List.*;
 
 // 集合はintで表せ、bit演算を用いることで高速に動かせる。
 
