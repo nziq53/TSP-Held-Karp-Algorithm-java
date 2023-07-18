@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -168,7 +169,11 @@ public class TSP_Held_Karp_Algorithm {
     }
 
     reversed_path.add(0);
-    tsp_shortest_path = reversed_path.reversed().stream().mapToInt(Integer::intValue).toArray();
+    // This is java 21
+    // tsp_shortest_path =
+    // reversed_path.reversed().stream().mapToInt(Integer::intValue).toArray();
+    Collections.reverse(reversed_path);
+    reversed_path.stream().mapToInt(Integer::intValue).toArray();
     tsp_shortest_cost = min_cost;
   }
 
