@@ -178,7 +178,7 @@ public class TSP_Held_Karp_Algorithm {
     // tsp_shortest_path =
     // reversed_path.reversed().stream().mapToInt(Integer::intValue).toArray();
     Collections.reverse(reversed_path);
-    reversed_path.stream().mapToInt(Integer::intValue).toArray();
+    tsp_shortest_path = reversed_path.stream().mapToInt(Integer::intValue).toArray();
     tsp_shortest_cost = min_cost;
   }
 
