@@ -152,7 +152,7 @@ public class TSP_Held_Karp_Algorithm {
       }
 
       System.out
-          .println(via_cities_size + " / " + (len - 1) + "all: " + (System.currentTimeMillis() - start_time) / 1000
+          .println(via_cities_size + " / " + (len - 1) + ", all: " + (System.currentTimeMillis() - start_time) / 1000
               + "s, diff: " + (System.currentTimeMillis() - diff) / 1000 + "s");
     }
 
