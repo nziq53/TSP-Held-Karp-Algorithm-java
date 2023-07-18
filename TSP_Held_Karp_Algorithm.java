@@ -125,7 +125,7 @@ public class TSP_Held_Karp_Algorithm {
   }
 
   // 都市0が開始。他は回せばよい
-  public void tsp_shortest_path() {
+  public void find_tsp_shortest_path() {
     for (int i = 1; i < len; ++i)
       map.put(new CityAndViaCities(i, 0), new CostAndCity(cityData[0][i], 0));
 
@@ -181,7 +181,7 @@ public class TSP_Held_Karp_Algorithm {
       tsp = TSP_Held_Karp_Algorithm.from(new ZipInputStream(new FileInputStream(file)));
       System.out.println(Arrays.deepToString(tsp.cityData));
 
-      tsp.tsp_shortest_path();
+      tsp.find_tsp_shortest_path();
       System.out.println(tsp.tsp_shortest_cost);
       System.out.println(Arrays.toString(tsp.tsp_shortest_path));
     } catch (FileNotFoundException e) {
