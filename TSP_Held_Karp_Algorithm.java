@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Map.Entry;
 import java.util.stream.IntStream;
+import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 // 集合はintで表せ、bit演算を用いることで高速に動かせる。
@@ -56,6 +57,14 @@ public class TSP_Held_Karp_Algorithm {
     reader.close();
 
     return new TSP_Held_Karp_Algorithm(tmpData);
+  }
+
+  public static TSP_Held_Karp_Algorithm from(ZipInputStream zip) throws IOException {
+    InputStreamReader isr = new InputStreamReader(zip);
+    BufferedReader br = new BufferedReader(isr);
+
+    ZipEntry entry = zip.getNextEntry();
+    return TSP_Held_Karp_Algorithm.from(br);
   }
 
   private CostAndCity find_shortest_path_to_via(int last_city, BigInteger via_cities, int[] cities) {
@@ -168,8 +177,9 @@ public class TSP_Held_Karp_Algorithm {
       // File file = new File("test1.dat");
       // tsp = TSP_Held_Karp_Algorithm.from(new BufferedReader(new FileReader(file)));
       File file = new File("table.zip");
-      tsp = TSP_Held_Karp_Algorithm
-          .from(new BufferedReader(new InputStreamReader(new ZipInputStream(new FileInputStream(file)))));
+      tsp = TSP_Held_Karp_Algorithm.from(new ZipInputStream(new FileInputStream(file)));
+      System.out.println(Arrays.deepToString(tsp.cityData));
+
       tsp.tsp_shortest_path();
       System.out.println(tsp.tsp_shortest_cost);
       System.out.println(Arrays.toString(tsp.tsp_shortest_path));
