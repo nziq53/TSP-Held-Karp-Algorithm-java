@@ -184,7 +184,7 @@ public class TSP_Held_Karp_Algorithm {
       // tsp = TSP_Held_Karp_Algorithm.from(new BufferedReader(new FileReader(file)));
       File file = new File("table.zip");
       tsp = TSP_Held_Karp_Algorithm.from(new ZipInputStream(new FileInputStream(file)));
-      System.out.println(Arrays.deepToString(tsp.cityData));
+      // System.out.println(Arrays.deepToString(tsp.cityData));
 
       tsp.find_tsp_shortest_path();
       System.out.println(tsp.tsp_shortest_cost);
