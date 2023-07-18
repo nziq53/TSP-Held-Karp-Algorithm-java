@@ -127,10 +127,14 @@ public class TSP_Held_Karp_Algorithm {
 
   // 都市0が開始。他は回せばよい
   public void find_tsp_shortest_path() {
+    final long start_time = System.currentTimeMillis();
+    long diff;
+
     for (int i = 1; i < len; ++i)
       map.put(new CityAndViaCities(i, 0), new CostAndCity(cityData[0][i], 0));
 
     for (int via_cities_size = 1; via_cities_size < len - 1; ++via_cities_size) {
+      diff = System.currentTimeMillis();
       // (1), (2), ...; (1 2), (1 3), (2 3), ...; (1 2 3), (1 2 4) ...
       // 的な感じで増える
       // System.out.println(via_cities_size);
@@ -148,7 +152,8 @@ public class TSP_Held_Karp_Algorithm {
                 find_shortest_path_to_via(last_city, via_cities, cities));
       }
 
-      System.out.println(via_cities_size + " / " + (len - 1));
+      System.out.println(via_cities_size + " / " + (len - 1) + "all: " + (System.currentTimeMillis() - start_time)
+          + "diff: " + (System.currentTimeMillis() - diff));
     }
 
     BigInteger via_cities = BigInteger.ONE.shiftLeft(len).subtract(BigInteger.TWO);
