@@ -23,10 +23,10 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: oracle
-          java-version: 20
+          java-version: 21-ea
       # Gradleビルドを実行
 #       - uses: gradle/gradle-build-action@v2
 #         with:
 #           arguments: build
       - name: Build java
-        run: javac TSP_Held_Karp_Algorithm.java && java -d64 -Xmx16g TSP_Held_Karp_Algorithm
+        run: javac TSP_Held_Karp_Algorithm.java && java -Xmx16g TSP_Held_Karp_Algorithm
