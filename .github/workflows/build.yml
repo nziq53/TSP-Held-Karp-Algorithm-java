@@ -22,7 +22,7 @@ jobs:
       - name: Set up Java 20
         uses: actions/setup-java@v3
         with:
-          distribution: microsoft
+          distribution: oracle
           java-version: 20
       # Gradleビルドを実行
 #       - uses: gradle/gradle-build-action@v2
